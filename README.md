@@ -24,9 +24,21 @@ Alle Anfragen **müssen** den Parameter _action_ enthalten. Mögliche Werte sind
 
   Gibt ein Array mit Objekten im Format JSON zurück.
   
-  Erfordert, dass die Eigenschaften _user_ und _chat_ mitgegeben werde. Optional kann die Zeit (Unixtime) als _date_ mitgegeben werden. Dann werden alle Nachrichten ab diesem Timestamp mitgegeben.
+  Erfordert, dass die Eigenschaften _user_ und _chat_ mitgegeben werde. Optional kann die Zeit (Unixtime) als _date_ mitgegeben werden. Dann werden alle Nachrichten ab diesem Timestamp mitgegeben. Ansonsten werden alle Nachrichten der letzten Stunde abgerufen.
 * _add_
 
   Erstellt eine neue Nachricht. Gibt eine Erfolgsmeldung als reinen Text zurück.
   
   Erfordert, dass die Eigenschaften _user_, _chat_ und _message_ mitgegeben werden. _Message_ kann Unicode-Zeichen enthalten.
+ 
+**user**
+
+Enthält den Nutzernamen im Chat. Kann frei gewählt werden - wird bei 20 Zeichen gekürzt.
+
+**chat**
+
+Nummer des Chatrooms. Wird vom Server per Zufall verteilt. Muss angegeben werden, wenn man Nachrichten abrufen oder neue schreiben möchte.
+
+**date**
+
+Das Datum als _Unixtime_. Kann beim Abrufen neuer Nachrichten angegeben werden.
