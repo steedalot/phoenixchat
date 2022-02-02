@@ -42,3 +42,14 @@ Nummer des Chatrooms. Wird vom Server per Zufall verteilt. Muss angegeben werden
 **date**
 
 Das Datum als _Unixtime_. Kann beim Abrufen neuer Nachrichten angegeben werden.
+
+### Beispiele
+
+`{"action": "get", "date": 1643713200}`
+
+-> Ruft alle Nachrichten ab dem 01.01.2022, 12 Uhr ab.
+
+`{"action": "add", "user": Max Mustermann, "chat": 12345, "message": "Ich bin ein 1337 haxxor!"}`
+
+-> Stellt eine neue Nachricht in den Raum 12345.
+
