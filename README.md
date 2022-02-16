@@ -24,7 +24,7 @@ Alle Anfragen **müssen** den Parameter _action_ enthalten. Mögliche Werte sind
 
   Gibt ein Array mit Objekten im Format JSON zurück.
   
-  Erfordert, dass die Eigenschaften _user_ und _chat_ mitgegeben werde. Optional kann die Zeit (Unixtime) als _date_ mitgegeben werden. Dann werden alle Nachrichten ab diesem Timestamp mitgegeben. Ansonsten werden alle Nachrichten der letzten Stunde abgerufen.
+  Erfordert, dass die Eigenschaften _chat_ mitgegeben werde. Optional kann die Zeit (Unixtime) als _date_ mitgegeben werden. Dann werden alle Nachrichten ab diesem Timestamp mitgegeben. Ansonsten werden alle Nachrichten der letzten Stunde abgerufen.
 * _add_
 
   Erstellt eine neue Nachricht. Gibt eine Erfolgsmeldung als reinen Text zurück.
