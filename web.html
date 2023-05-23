@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <link rel="stylesheet" href="simple.min.css">
+    <title>Phoenix Gymnasium Fehlermeldungen</title>
+    </head>
+    
+    <body>
+
+        <div id="body">
+    
+            <header>
+                <h1>Phoenixchat</h1>
+                <p>Chatroom: {{ chatroom }} </p>
+            </header>
+
+            <main>
+                <table style="font-size: 1rem">
+                    <thead>
+                        <tr>
+                            <th>Datum</th>
+                            <th>User</th>
+                            <th>Nachricht</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="message in messages">
+                            <td>{{ message.realDate }}</td>
+                            <td>{{ message.user }}</td>
+                            <td>{{ message.message }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    <input type="text" placeholder="Chatroom eingeben" v-model="chatroomBox"> <button @click="findRoom">Raum öffnen</button>
+                </p>
+            </main>
+
+            <footer>
+                <p>Phoenixchat | Probleme: <a href="mailto:daniel.gaida@phoenixgymnasium.de">📧 E-Mail</a></p>
+            </footer>
+
+        </div>
+
+        <script src="vue.global.js"></script>
+        <script src="code.js"></script>
+        
+    </body>
+</html>

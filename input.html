@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <link rel="stylesheet" href="simple.min.css">
+    <title>Phoenix Gymnasium Nachrichten Upload</title>
+    </head>
+    
+    <body>
+
+        <div id="body">
+    
+            <header>
+                <h1>Phoenixchat | Neue Nachricht</h1>
+            </header>
+
+            <main>
+                <form>
+                    <p>
+                        <label>Raum</label> <input type="text" placeholder="Raumnummer" v-model="chatroom" size="10">
+                    </p>
+                    <p>
+                        <label>Benutzer</label> <input type="text" placeholder="Benutzer" v-model="userBox" size="10">
+                    </p>
+                    <p>
+                        <label>Nachricht</label><br>
+                        <input type="text" placeholder="Nachricht eingeben" v-model="messageBox" size="30"><br>
+                    </p>
+                    <button style="text-align: center" @click="addMessage">Nachricht senden</button> <button type="Reset">Zurücksetzen</button>
+                </form>
+            </main>
+
+            <footer style="bottom: 10px; position:fixed">
+                <p>Phoenixchat | Probleme: <a href="mailto:daniel.gaida@phoenixgymnasium.de">📧 E-Mail</a></p>
+            </footer>
+
+        </div>
+
+        <script src="vue.global.js"></script>
+        <script src="code.js"></script>
+        
+    </body>
+</html>
