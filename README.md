@@ -52,7 +52,3 @@ Das Datum als _Unixtime_. Kann beim Abrufen neuer Nachrichten angegeben werden.
 `{"action": "add", "user": Max Mustermann, "chat": 12345, "message": "Ich bin ein 1337 haxxor!"}`
 
 -> Stellt eine neue Nachricht in den Raum 12345.
-<<<<<<< HEAD
-
-=======
->>>>>>> 3acb976 (Readme hinzugefügt)
