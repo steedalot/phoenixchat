@@ -45,9 +45,9 @@ Das Datum als _Unixtime_. Kann beim Abrufen neuer Nachrichten angegeben werden.
 
 ### Beispiele
 
-`{"action": "get", "date": 1643713200, "chat": 6788}`
+`{"action": "get", "date": 1643713200, "chat": 676654}`
 
--> Ruft alle Nachrichten ab dem 01.01.2022, 12 Uhr, im Chatraum 6788 ab.
+-> Ruft alle Nachrichten ab dem 01.01.2022, 12 Uhr, in Raum 676654 ab.
 
 `{"action": "add", "user": "Max Mustermann", "chat": 12345, "message": "Ich bin ein 1337 haxxor!"}`
 
