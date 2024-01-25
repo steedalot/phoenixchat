@@ -32,7 +32,12 @@ if (isset($data->action)) {
 
             if (isset($data->chat)) {
 
-                if (isset($data->date)) {
+                if ($data->chat < 100 || $data->chat > 1000000) {
+                    $status = 403;
+                    $answer = "Dieser Chatroom ist reserviert für Sie nicht verfügbar (bitte nutzen Sie Räume zwischen 100 und 1000000).";
+                }
+
+                elseif (isset($data->date)) {
                     $messages = R::getAll("SELECT * FROM `message` WHERE `date` > '".$data->date."' AND `chat` = '".$data->chat."' ORDER BY `date` ASC");
                     if ($messages) {
                         $answer = json_encode($messages);
@@ -43,6 +48,7 @@ if (isset($data->action)) {
                         $status = 404;
                     }
                 }
+                
                 else {
                     $messages = R::getAll("SELECT * FROM `message` WHERE `date` > '".(time() - 3600)."' AND `chat` = '".$data->chat."' ORDER BY `date` ASC");
                     if ($messages) {
@@ -66,15 +72,21 @@ if (isset($data->action)) {
 
             if (isset($data->chat)) {
 
-
-                $message = R::getCell("SELECT `message` FROM `message` WHERE `chat` = '".$data->chat."' ORDER BY `date` DESC LIMIT 1");
-                if ($message) {
-                    $answer = $message;
-                    $status = 200;
+                if ($data->chat < 100 || $data->chat > 1000000) {
+                    $status = 403;
+                    $answer = "Dieser Chatroom ist reserviert für Sie nicht verfügbar (bitte nutzen Sie Räume zwischen 100 und 1000000).";
                 }
+
                 else {
-                    $answer = "Es konnten keine passenden Nachrichten in diesem Chatraum gefunden werden.";
-                    $status = 404;
+                    $message = R::getCell("SELECT `message` FROM `message` WHERE `chat` = '".$data->chat."' ORDER BY `date` DESC LIMIT 1");
+                    if ($message) {
+                        $answer = $message;
+                        $status = 200;
+                    }
+                    else {
+                        $answer = "Es konnten keine passenden Nachrichten in diesem Chatraum gefunden werden.";
+                        $status = 404;
+                    }
                 }
 
             }
@@ -87,14 +99,23 @@ if (isset($data->action)) {
         case "add":
 
             if (isset($data->user) && isset($data->message) && isset($data->chat)) {
-                $message = R::dispense("message");
-                $message->user = substr($data->user, 0, $maximum_username_length);
-                $message->message = substr($data->message, 0, $maximum_message_length);
-                $message->chat = $data->chat;
-                $message->date = time();
-                $id = R::store($message);
-                $status = 200;
-                $answer = "Die Nachricht wurde hinzugefügt.";
+
+                if ($data->chat < 100 || $data->chat > 1000000) {
+                    $status = 403;
+                    $answer = "Dieser Chatroom ist reserviert für Sie nicht verfügbar (bitte nutzen Sie Räume zwischen 100 und 1000000).";
+                }
+                
+                else {
+                    $message = R::dispense("message");
+                    $message->user = substr($data->user, 0, $maximum_username_length);
+                    $message->message = substr($data->message, 0, $maximum_message_length);
+                    $message->chat = $data->chat;
+                    $message->date = time();
+                    $id = R::store($message);
+                    $status = 200;
+                    $answer = "Die Nachricht wurde hinzugefügt.";
+                }
+
             }
             else {
                 $status = 400;
