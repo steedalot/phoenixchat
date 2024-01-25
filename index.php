@@ -34,7 +34,7 @@ if (isset($data->action)) {
 
                 if ($data->chat < 100 || $data->chat > 1000000) {
                     $status = 403;
-                    $answer = "Dieser Chatroom ist reserviert für Sie nicht verfügbar (bitte nutzen Sie Räume zwischen 100 und 1000000).";
+                    $answer = "Dieser Chatroom ist reserviert und für Sie nicht verfügbar (bitte nutzen Sie Räume zwischen 100 und 1000000).";
                 }
 
                 elseif (isset($data->date)) {
@@ -74,7 +74,7 @@ if (isset($data->action)) {
 
                 if ($data->chat < 100 || $data->chat > 1000000) {
                     $status = 403;
-                    $answer = "Dieser Chatroom ist reserviert für Sie nicht verfügbar (bitte nutzen Sie Räume zwischen 100 und 1000000).";
+                    $answer = "Dieser Chatroom ist reserviert und für Sie nicht verfügbar (bitte nutzen Sie Räume zwischen 100 und 1000000).";
                 }
 
                 else {
@@ -102,7 +102,7 @@ if (isset($data->action)) {
 
                 if ($data->chat < 100 || $data->chat > 1000000) {
                     $status = 403;
-                    $answer = "Dieser Chatroom ist reserviert für Sie nicht verfügbar (bitte nutzen Sie Räume zwischen 100 und 1000000).";
+                    $answer = "Dieser Chatroom ist reserviert und für Sie nicht verfügbar (bitte nutzen Sie Räume zwischen 100 und 1000000).";
                 }
                 
                 else {
