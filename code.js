@@ -2,6 +2,7 @@ const phoenixchat = {
 	data() {
 		return {
 			messages: [],
+            reverseOrder: false,
             chatroomBox: "",
             chatroom: "6775",
             date: "1641040000",
@@ -17,7 +18,23 @@ const phoenixchat = {
 	mounted() {
 		// this.keys.random = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 	},
+
+    computed: {
+        orderedMessages: function() {
+            if (this.reverseOrder) {
+                return this.messages.slice().reverse();
+            }
+            else {
+                return this.messages;
+            }
+        }
+    },
+    
 	methods: {
+
+        toggleOrder: function() {
+            this.reverseOrder = !this.reverseOrder;
+        },
 
         getMessages: function() {
             this.server_get(this.chatroom, this.date, this.messages_handler);

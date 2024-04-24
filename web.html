@@ -16,7 +16,11 @@
                 <p>Chatroom: {{ chatroom }} </p>
             </header>
 
-            <main>
+            <p>
+                <input type="text" placeholder="Chatroom eingeben" v-model="chatroomBox"> <button @click="findRoom">Raum öffnen</button> <button @click="toggleOrder">⬆️ ⬇️</button>
+            </p>
+
+            <main>            
                 <table style="font-size: 1rem">
                     <thead>
                         <tr>
@@ -26,16 +30,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="message in messages">
+                        <tr v-for="message in orderedMessages">
                             <td>{{ message.realDate }}</td>
                             <td>{{ message.user }}</td>
-                            <td>{{ message.message }}</td>
+                            <td style="word-break: break-all">{{ message.message }}</td>
                         </tr>
                     </tbody>
                 </table>
-                <p>
-                    <input type="text" placeholder="Chatroom eingeben" v-model="chatroomBox"> <button @click="findRoom">Raum öffnen</button>
-                </p>
             </main>
 
             <footer>
