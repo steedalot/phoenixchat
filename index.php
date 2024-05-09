@@ -95,6 +95,34 @@ if (isset($data->action)) {
                 $answer = "Die Anfrage enthielt keine Informationen zum Chatroom.";
             }
             break;
+        
+            case "get_last_json":
+
+                if (isset($data->chat)) {
+    
+                    if ($data->chat < 100 || $data->chat > 1000000) {
+                        $status = 403;
+                        $answer = "Dieser Chatroom ist reserviert und für Sie nicht verfügbar (bitte nutzen Sie Räume zwischen 100 und 1000000).";
+                    }
+    
+                    else {
+                        $message = R::getCell("SELECT * FROM `message` WHERE `chat` = '".$data->chat."' ORDER BY `date` DESC LIMIT 1");
+                        if ($message) {
+                            $answer = json_encode($message);
+                            $status = 200;
+                        }
+                        else {
+                            $answer = "Es konnten keine passenden Nachrichten in diesem Chatraum gefunden werden.";
+                            $status = 404;
+                        }
+                    }
+    
+                }
+                else {
+                    $status = 400;
+                    $answer = "Die Anfrage enthielt keine Informationen zum Chatroom.";
+                }
+                break;
 
         case "add":
 
