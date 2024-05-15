@@ -106,7 +106,7 @@ if (isset($data->action)) {
                     }
     
                     else {
-                        $message = R::getCell("SELECT * FROM `message` WHERE `chat` = '".$data->chat."' ORDER BY `date` DESC LIMIT 1");
+                        $message = R::getAll("SELECT * FROM `message` WHERE `chat` = '".$data->chat."' ORDER BY `date` DESC LIMIT 1");
                         if ($message) {
                             $answer = json_encode($message);
                             $status = 200;
